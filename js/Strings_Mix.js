@@ -16,15 +16,19 @@
    let charCount = (string, num, sDict) => {
      for (let char of stringSet) {
        let regex = new RegExp(char, "g");
-       let count = string.match(regex).join('');
+       let count = string.match(regex);
+       if (count) {
+         count.join();
+          if (count.length > 1) {
+            sDict[char] = num + count;
+          }
+       };
        //let num = string.match(/[char]/g);  // regex cannot accept a variable
-       if (count.length > 1) {
-        sDict[char] = num + count;
-       }
+      }
      }
-   }
+  charCount(s1, "1:", s1Dict);
    charCount(s2, "2:", s2Dict);
-   console.log(s2Dict);
+   console.log(s1Dict, s2Dict);
  }
 
 mix("Are they here", "yes, they are here");
